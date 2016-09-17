@@ -2,8 +2,7 @@
 volatile bool SLEEP_FLAG;
 
 void EIC_ISR(void) {
-  if (SLEEP_FLAG == true) { SLEEP_FLAG = false; } // toggle SLEEP_FLAG
-  if (SLEEP_FLAG == false) { SLEEP_FLAG = true; }
+  SLEEP_FLAG ^= true;  // toggle SLEEP_FLAG by XORing it against true
   //Serial.print("EIC_ISR SLEEP_FLAG = ");
   //Serial.println(SLEEP_FLAG);
 }
